@@ -9,7 +9,11 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "hero_slides": {
       "type": "relation",
@@ -17,10 +21,20 @@
       "target": "api::hero-slide.hero-slide"
     },
     "autoplay": {
-      "type": "boolean"
+      "type": "boolean",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "interval": {
-      "type": "biginteger"
+      "type": "biginteger",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

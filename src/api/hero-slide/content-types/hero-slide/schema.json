@@ -35,7 +35,7 @@
       "type": "media",
       "pluginOptions": {
         "i18n": {
-          "localized": true
+          "localized": false
         }
       },
       "multiple": false,
@@ -50,9 +50,24 @@
       "type": "integer",
       "pluginOptions": {
         "i18n": {
-          "localized": true
+          "localized": false
         }
       }
+    },
+    "BackgroundImage": {
+      "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }

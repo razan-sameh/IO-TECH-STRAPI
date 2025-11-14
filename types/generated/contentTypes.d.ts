@@ -509,7 +509,7 @@ export interface ApiClientClient extends Struct.CollectionTypeSchema {
     photo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
@@ -529,8 +529,18 @@ export interface ApiHeroSectionHeroSection extends Struct.SingleTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    autoplay: Schema.Attribute.Boolean;
+    autoplay: Schema.Attribute.Boolean &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -538,13 +548,17 @@ export interface ApiHeroSectionHeroSection extends Struct.SingleTypeSchema {
       'oneToMany',
       'api::hero-slide.hero-slide'
     >;
-    interval: Schema.Attribute.BigInteger;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    interval: Schema.Attribute.BigInteger &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::hero-section.hero-section'
-    > &
-      Schema.Attribute.Private;
+    >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -568,6 +582,14 @@ export interface ApiHeroSlideHeroSlide extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
+    BackgroundImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -585,13 +607,13 @@ export interface ApiHeroSlideHeroSlide extends Struct.CollectionTypeSchema {
     media: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     order: Schema.Attribute.Integer &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
@@ -635,7 +657,7 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     locale: Schema.Attribute.String;
@@ -709,7 +731,7 @@ export interface ApiTeamMemberTeamMember extends Struct.CollectionTypeSchema {
     contactLinks: Schema.Attribute.Component<'common.contact-link', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     createdAt: Schema.Attribute.DateTime;
@@ -729,7 +751,7 @@ export interface ApiTeamMemberTeamMember extends Struct.CollectionTypeSchema {
     photo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
